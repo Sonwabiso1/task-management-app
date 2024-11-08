@@ -1,23 +1,40 @@
-// server/server.js
-require('dotenv').config();
+// server.js
 const express = require('express');
-const mongoose = require('mongoose'); // Only if using MongoDB
+const mongoose = require('mongoose');
+require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
 app.use(express.json());
 
-// Database connection (MongoDB example)
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('MongoDB connected'))
-  .catch((err) => console.error('MongoDB connection error:', err));
-
-// Example route
-app.get('/', (req, res) => {
-  res.send('Task Management API');
+// Mongoose schema and model for the tasksCollection
+const taskSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  priority: String,
+  status: Boolean,
 });
 
+const Task = mongoose.model('Task', taskSchema, 'tasksCollection');
+
+// Connect to MongoDB Atlas with tasksDatabase
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  dbName: 'tasksDatabase'  // Specify the tasksDatabase here
+})
+.then(() => console.log('Connected to MongoDB Atlas - tasksDatabase'))
+.catch((err) => console.error('MongoDB connection error:', err));
+
+// GET route to fetch all tasks from tasksCollection
+app.get('/api/tasks', async (req, res) => {
+  try {
+    const tasks = await Task.find();
+    res.json(tasks);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
