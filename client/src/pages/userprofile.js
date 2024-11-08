@@ -23,7 +23,16 @@ export default function Userprofile(){
 
         <div id="right-section">
             <h1>User profile</h1>
-            <h4></h4>
+            <h4>Name/Surname:<span>Hailey Williams</span></h4>
+            <hr/>
+            <br/>
+            <h4>Email:<span>haileyblast23@gmail.com</span></h4>
+            <hr/>
+            <br/>
+            <h4>Cell:<span>0715827951</span></h4>
+            <hr/>
+            <br/>
+            <h4>Username:<span>Hailey345</span></h4>
         </div>
         </div>
     )
