@@ -9,9 +9,17 @@ export default function MemberLog(){
         </div>
         <div id="form">
             <h1>Member Login</h1>
-            <form>
-                <input type="text"/>
-                <input type="text"/>
+            <form action="submit">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder='value' required/>
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder='value' required/>
+                <button>Sign In</button>
+                <br/>
+                <div id="otherOptions">
+                <a href="#">forgot password?</a>
+                <a href="#">Sign up</a>
+                </div>
             </form>
         </div>
         </div>

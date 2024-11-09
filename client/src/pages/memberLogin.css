@@ -1,7 +1,10 @@
 #entirePage{
+    background-color: #2D2C4C;
     display: flex;
     justify-content: space-around;
-    background-color: #2D2C4C;
+    min-height: 100vh;
+    padding: 50px;
+    box-sizing: border-box;
 }
 
 #form{
@@ -9,7 +12,40 @@
 }
 
 form{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
     background-color: #fff;
     padding-left: 50px;
     padding-right: 50px;
+}
+
+form label{
+    margin-top: 20px;
+}
+
+form button{
+    margin-top: 20px;
+    background-color: #2D2C4C;
+    color: #fff;
+    border-radius: 30px;
+}
+
+img{
+    margin-top: 200px;
+}
+
+#otherOptions{
+display: flex;
+flex-direction: row;
+}
+
+#otherOptions a{
+    margin-right: 50px;
+    margin-bottom: 100px;
+}
+
+input{
+    border-radius: 10px;
+    outline: gray;
 }
