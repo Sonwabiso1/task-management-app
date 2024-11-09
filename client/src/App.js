@@ -5,14 +5,18 @@ import Notification from './pages/notification'
 import Userprofile from './pages/userprofile'
 import Signup from './pages/Signup';
 import MemberLog from './pages/memberLogin';
+import Projects from './pages/Projects';
+import Tasks from './pages/Tasks';
 
 function App() {
   return (
     <>
-    <MemberLog />
+     <Tasks />
+    {/*<MemberLog />*/}
     {/*<Userprofile />*/}
    {/*<Notification />*/}
     {/*<Signup />*/}
+    {/*<Projects />*/}
     </>
   );
 }

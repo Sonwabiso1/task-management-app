@@ -25,6 +25,7 @@ export default function Signup() {
 
                     <label htmlFor="confirm-pass">Confirm password:</label>
                     <input type="password" id="confirm-pass" required />
+                    <button>Register</button>
                 </form>
             </div>
         </div>
