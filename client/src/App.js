@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Notification from './pages/notification'
+import Userprofile from './pages/userprofile'
+import Signup from './pages/Signup';
+import MemberLog from './pages/memberLogin';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Test commit
-        </a>
-      </header>
-    </div>
+    <>
+    <MemberLog />
+    {/*<Userprofile />*/}
+   {/*<Notification />*/}
+    {/*<Signup />*/}
+    </>
   );
 }
 

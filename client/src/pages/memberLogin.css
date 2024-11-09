@@ -1,0 +1,15 @@
+#entirePage{
+    display: flex;
+    justify-content: space-around;
+    background-color: #2D2C4C;
+}
+
+#form{
+    margin-top: 50px;
+}
+
+form{
+    background-color: #fff;
+    padding-left: 50px;
+    padding-right: 50px;
+}
