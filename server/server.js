@@ -1,11 +1,15 @@
 // server.js
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');  // Import cors
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
+
+// Use CORS middleware
+app.use(cors({ origin: 'http://localhost:3000' }));  // Allow requests from localhost:3000
 
 // Mongoose schema and model for the tasksCollection
 const taskSchema = new mongoose.Schema({
