@@ -9,6 +9,9 @@ export default function Adminprofile(){
         <h1>Obakeng Ndlovu</h1>
         <h1>Admin Profile</h1>
         </div>
+        <div>
+            <h1>Role</h1>
+        </div>
         </>
     )
 }

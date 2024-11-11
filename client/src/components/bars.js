@@ -10,7 +10,7 @@ export default function Bars() {
                 <br />
                 <Link to="./pages/Project"><h1>📁 Projects</h1></Link>
                 <br />
-                <h1>🔔 Notifications</h1>
+                <Link to="./pages/notification"><h1>🔔 Notifications</h1></Link> 
             </div>
 
             <div id="navbar">

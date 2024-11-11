@@ -15,19 +15,19 @@ import Adminprofile from './pages/adminProfile';
 function App() {
   return (
     <>
-    {/*<BrowserRouter>
+    <BrowserRouter>
     <Bars />
     <Routes>
       <Route path="/" element={<Signup />}/>
+    <Route path="/pages/About" element={<About />} />
      <Route path="/Tasks" element={<Tasks />}/>
     <Route path="/memberlogin" element={<MemberLog />}/>
     <Route path="/userprofile" element={<Userprofile />}/>
    <Route path="/notification" element={<Notification />}/>
     <Route path="/projects" element={<Projects />}/>
+    <Route path="/adminprofile" element={<Adminprofile />}/>
     </Routes>
-    </BrowserRouter>*/}
-    {/*<About />*/}
-    <Adminprofile />
+    </BrowserRouter>
     <Footer />
     </>
   );
