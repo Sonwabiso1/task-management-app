@@ -1,46 +1,57 @@
-/* Remove any background on the main container */
+/* Main layout */
 #mainDiv {
     display: flex;
-    background-color: transparent;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* Sidebar styling */
+/* Sidebar */
 #sidebar {
-    width: 200px; /* Set sidebar width */
-    background-color: #333; /* Set sidebar color */
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: fixed; /* Fix sidebar on the left side */
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 60px; /* Ensures it's below the navbar */
+    left: 0;
+    background-color: #f0f0f0;
+    padding-top: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Navbar */
+#navbar {
+    width: 100%;
+    height: 60px;
+    position: fixed;
     top: 0;
     left: 0;
-    bottom: 0;
-    overflow-y: auto; /* Allows scrolling if content overflows */
-}
-
-/* Navbar styling */
-#navbar {
-    background-color: #444; /* Set navbar color */
+    background-color: #333;
     color: white;
-    padding: 10px 20px;
     display: flex;
     align-items: center;
+    padding: 0 20px;
     justify-content: space-between;
-    position: fixed; /* Fix navbar at the top */
-    top: 0;
-    left: 200px; /* Offset by sidebar width */
-    right: 0;
-    height: 60px;
+    z-index: 1000;
 }
 
-/* Reset body styling to remove background and padding */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: transparent; /* Optional: Set transparent or custom background color */
+.toggle-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+/* Main content area */
+.main-content {
+    margin-top: 60px; /* Adds space below navbar */
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar-open .main-content {
+    margin-left: 200px;
+}
+
+.sidebar-closed .main-content {
+    margin-left: 0;
 }
