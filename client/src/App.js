@@ -7,16 +7,28 @@ import Signup from './pages/Signup';
 import MemberLog from './pages/memberLogin';
 import Projects from './pages/Projects';
 import Tasks from './pages/Tasks';
+import Bars from './components/bars';
+import About from './pages/About';
+import Footer from './components/footer';
+import Adminprofile from './pages/adminProfile';
 
 function App() {
   return (
     <>
-     <Tasks />
-    {/*<MemberLog />*/}
-    {/*<Userprofile />*/}
-   {/*<Notification />*/}
-    {/*<Signup />*/}
-    {/*<Projects />*/}
+    {/*<BrowserRouter>
+    <Bars />
+    <Routes>
+      <Route path="/" element={<Signup />}/>
+     <Route path="/Tasks" element={<Tasks />}/>
+    <Route path="/memberlogin" element={<MemberLog />}/>
+    <Route path="/userprofile" element={<Userprofile />}/>
+   <Route path="/notification" element={<Notification />}/>
+    <Route path="/projects" element={<Projects />}/>
+    </Routes>
+    </BrowserRouter>*/}
+    {/*<About />*/}
+    <Adminprofile />
+    <Footer />
     </>
   );
 }

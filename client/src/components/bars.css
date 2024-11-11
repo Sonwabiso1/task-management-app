@@ -1,0 +1,46 @@
+/* Remove any background on the main container */
+#mainDiv {
+    display: flex;
+    background-color: transparent;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar styling */
+#sidebar {
+    width: 200px; /* Set sidebar width */
+    background-color: #333; /* Set sidebar color */
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed; /* Fix sidebar on the left side */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+/* Navbar styling */
+#navbar {
+    background-color: #444; /* Set navbar color */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed; /* Fix navbar at the top */
+    top: 0;
+    left: 200px; /* Offset by sidebar width */
+    right: 0;
+    height: 60px;
+}
+
+/* Reset body styling to remove background and padding */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: transparent; /* Optional: Set transparent or custom background color */
+}
