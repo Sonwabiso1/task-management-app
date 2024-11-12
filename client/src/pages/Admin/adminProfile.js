@@ -1,5 +1,5 @@
 import React from 'react'
-import './Adminprofile.css'
+import './../../styles/Admin/Adminprofile.css'
 
 export default function Adminprofile(){
     return(

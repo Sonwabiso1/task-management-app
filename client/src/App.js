@@ -1,16 +1,20 @@
-import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Notification from './pages/notification';
-import Userprofile from './pages/userprofile';
-import Signup from './pages/Signup';
-import MemberLog from './pages/memberLogin';
-import Projects from './pages/Projects';
-import Tasks from './pages/Tasks';
+//Landing Page imports
+import Signup from './pages/Landing Pages/Signup';
+import MemberLog from './pages/Landing Pages/memberLogin';
+import About from './pages/Landing Pages/About';
+//User Imports
+import UserProjects from './pages/User/userProjects';
+import UserTasks from './pages/User/userTasks';
+import UserNotifications from './pages/User/userNotifications';
+import Userprofile from './pages/User/userprofile';
+//Admin Imports
+import Adminprofile from './pages/Admin/adminProfile';
+//Components Imports
 import Bars from './components/bars';
-import About from './pages/About';
 import Footer from './components/footer';
-import Adminprofile from './pages/adminProfile';
+
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(true);
@@ -26,11 +30,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Signup />} />
           <Route path="/about" element={<About />} />
-          <Route path="/tasks" element={<Tasks />} />
+          <Route path="/tasks" element={<UserTasks />} />
           <Route path="/memberlogin" element={<MemberLog />} />
           <Route path="/userprofile" element={<Userprofile />} />
-          <Route path="/notification" element={<Notification />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/notification" element={<UserNotifications />} />
+          <Route path="/projects" element={<UserProjects />} />
           <Route path="/adminprofile" element={<Adminprofile />} />
         </Routes>
       </div>
