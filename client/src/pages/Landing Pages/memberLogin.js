@@ -1,5 +1,5 @@
 import React from 'react'
-import './memberLogin.css'
+import './../../styles/Landing/memberLogin.css'
 
 export default function MemberLog(){
     return(

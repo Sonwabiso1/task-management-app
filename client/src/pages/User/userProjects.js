@@ -1,5 +1,5 @@
 import React from "react";
-import './Projects.css'
+import './../../styles/User/userProjects.css'
 
 export default function Projects(){
     return(

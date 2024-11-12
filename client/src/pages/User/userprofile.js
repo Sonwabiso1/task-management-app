@@ -1,5 +1,5 @@
 import React from 'react'
-import './userprofile.css'
+import './../../styles/User/userprofile.css'
 
 export default function Userprofile(){
     return(
