@@ -44,5 +44,6 @@ h1 {
     flex-grow: 1; /* Main content area takes the remaining space */
     padding: 20px;
     background-image: url('https://img.freepik.com/premium-photo/starry-night-sky-with-bright-stars-blue-glowing-clouds_604472-25713.jpg');
+    background-size: cover;
     overflow-y: auto; /* Enable scrolling if content overflows */
 }
