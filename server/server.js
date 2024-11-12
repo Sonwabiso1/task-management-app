@@ -1,40 +1,106 @@
 // server.js
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');  // Import cors
+const cors = require('cors');
 require('dotenv').config();
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
+app.use(cors({ origin: 'http://localhost:3000' })); // Allow requests from localhost:3000
 
-// Use CORS middleware
-app.use(cors({ origin: 'http://localhost:3000' }));  // Allow requests from localhost:3000
+// Connect to MongoDB Atlas with taskManagementDB
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  dbName: 'taskManagementDB'  // Specify the taskManagementDB here
+})
+.then(() => console.log('Connected to MongoDB Atlas - taskManagementDB'))
+.catch((err) => console.error('MongoDB connection error:', err));
 
-// Mongoose schema and model for the tasksCollection
+// Define Mongoose schemas and models for each collection
+
+// Task Schema
 const taskSchema = new mongoose.Schema({
   title: String,
   description: String,
   priority: String,
   status: Boolean,
-});
+  assignedTo: mongoose.Schema.Types.ObjectId, // Reference to User
+  createdBy: mongoose.Schema.Types.ObjectId,  // Reference to User
+  projectId: mongoose.Schema.Types.ObjectId,  // Reference to Project
+  dueDate: Date,
+}, { collection: 'tasks' });
+const Task = mongoose.model('Task', taskSchema);
 
-const Task = mongoose.model('Task', taskSchema, 'tasksCollection');
+// User Schema
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  password: String,
+  organization: String,
+  role: { type: String, enum: ['admin', 'user'] },
+}, { collection: 'users' });
+const User = mongoose.model('User', userSchema);
 
-// Connect to MongoDB Atlas with tasksDatabase
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  dbName: 'tasksDatabase'  // Specify the tasksDatabase here
-})
-.then(() => console.log('Connected to MongoDB Atlas - tasksDatabase'))
-.catch((err) => console.error('MongoDB connection error:', err));
+// Notification Schema
+const notificationSchema = new mongoose.Schema({
+  userId: mongoose.Schema.Types.ObjectId, // Reference to User
+  message: String,
+  type: String, // "task", "project", "system"
+  read: Boolean,
+}, { collection: 'notifications' });
+const Notification = mongoose.model('Notification', notificationSchema);
 
-// GET route to fetch all tasks from tasksCollection
+// Project Schema
+const projectSchema = new mongoose.Schema({
+  name: String,
+  description: String,
+  createdBy: mongoose.Schema.Types.ObjectId,  // Reference to User
+  organization: String,
+  members: [mongoose.Schema.Types.ObjectId], // Array of User references
+  status: String,
+}, { collection: 'projects' });
+const Project = mongoose.model('Project', projectSchema);
+
+// Routes to fetch data
+
+// GET route to fetch all tasks
 app.get('/api/tasks', async (req, res) => {
   try {
     const tasks = await Task.find();
     res.json(tasks);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// GET route to fetch all users
+app.get('/api/users', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// GET route to fetch all notifications
+app.get('/api/notifications', async (req, res) => {
+  try {
+    const notifications = await Notification.find();
+    res.json(notifications);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// GET route to fetch all projects
+app.get('/api/projects', async (req, res) => {
+  try {
+    const projects = await Project.find();
+    res.json(projects);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
