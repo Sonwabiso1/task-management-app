@@ -6,7 +6,6 @@ export default function Bars({ toggleSidebar, showSidebar }) {
     return (
         <div>
             <div id="navbar">
-                <h1>LOGO</h1>
                 <select id="project-dropdown">
                     <option>Project Name</option>
                     <option>Project A</option>
@@ -19,6 +18,7 @@ export default function Bars({ toggleSidebar, showSidebar }) {
             </div>
             {showSidebar && (
                 <div id="sidebar">
+                      <img src="TaskDash (2).png"alt="logo" className="logo" width="100" height="100"/>
                     <Link to="/"><h1>🏠 Home</h1></Link>
                     <Link to="/projects"><h1>📁 Projects</h1></Link>
                     <Link to="/notification"><h1>🔔 Notifications</h1></Link>
