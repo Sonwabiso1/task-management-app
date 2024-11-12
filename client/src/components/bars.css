@@ -7,13 +7,14 @@
 
 /* Sidebar */
 #sidebar {
-    width: 200px;
+    width: 20%; /* Responsive width */
     height: 100vh;
     position: fixed;
     top: 60px; /* Ensures it's below the navbar */
     left: 0;
     background-color: #f0f0f0;
     padding-top: 20px;
+    overflow-y: auto; /* Allows scrolling within the sidebar */
     transition: transform 0.3s ease-in-out;
 }
 
@@ -49,9 +50,25 @@
 }
 
 .sidebar-open .main-content {
-    margin-left: 200px;
+    margin-left: 20%; /* Matches the sidebar width */
 }
 
 .sidebar-closed .main-content {
     margin-left: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%; /* Full width for smaller screens */
+        transform: translateX(-100%); /* Off-screen when closed */
+    }
+    
+    .sidebar-open #sidebar {
+        transform: translateX(0); /* Slide in */
+    }
+    
+    .main-content {
+        margin-left: 0; /* No margin shift on smaller screens */
+    }
 }

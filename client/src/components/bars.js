@@ -22,6 +22,11 @@ export default function Bars({ toggleSidebar, showSidebar }) {
                     <Link to="/"><h1>🏠 Home</h1></Link>
                     <Link to="/projects"><h1>📁 Projects</h1></Link>
                     <Link to="/notification"><h1>🔔 Notifications</h1></Link>
+                    <Link to="/about"><h1>📝About</h1></Link>
+                    <Link to="/tasks"><h1>🔎Tasks</h1></Link>
+                    <Link to="/memberlogin"><h1>🙂MemberLog</h1></Link>
+                    <Link to="/userprofile"><h1>😎Userprofile</h1> </Link>
+                    <Link to="/adminprofile"><h1>😒Adminprofile</h1></Link>
                 </div>
             )}
         </div>
