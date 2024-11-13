@@ -1,72 +1,52 @@
-body {
-    background: url('https://source.unsplash.com/1600x900/?space') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: Arial, sans-serif;
+    background-color: #B7BCC5;
   }
   
-  .board {
-    display: flex;
-    gap: 30px;
-    padding: 20px;
-    background-color: #2D2C4C;
-    border-radius: 10px;
-  }
-  
-  .column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 250px;
-  }
-  
-  .header {
-    width: 100%;
-    padding: 10px;
+  h1 {
     text-align: center;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px 5px 0 0;
-    margin-bottom: 7px;
+    margin-bottom: 20px;
   }
   
-  .todo {
-    background-color: #ff4d4d;
+  #proj-Widgets {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
   
-  .in-progress {
-    background-color: #ffff66;
+  #widget {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    flex-basis: 48%;
+    text-align: center; /* Center content within each widget */
+  }
+  
+  #widget h3 {
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  #widget button {
+    background-color: #2D2C4C;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  #widget button:hover {
+    background-color:#a09de7;
     color: black;
   }
-  
-  .done {
-    background-color: #66ff66;
-  }
-  
-  .box {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    background-color: white;
-    margin-top: 10px;
-    margin-bottom: 7px;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-  }
-  
-  .box h4, .box p, .box h5 {
-    margin: 5px 0;
-  }
-  
-  .column .box:last-child {
-    margin-bottom: 0;
-  }
-  
