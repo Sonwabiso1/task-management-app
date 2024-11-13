@@ -11,7 +11,7 @@ export default function Tasks() {
                      Task name
                     </h4>
                     <p>Task description</p>
-
+                    <h5>Date due: </h5>
                 </div>
             </div>
             <div class="column">
@@ -21,6 +21,7 @@ export default function Tasks() {
                       Task name
                     </h4>
                     <p>Task description</p>
+                    <h5>Date due: </h5>
                 </div>
                 <div class="box"></div>
             </div>
@@ -31,6 +32,7 @@ export default function Tasks() {
                      Task name
                     </h4>
                     <p>Task description</p>
+                    <h5>Date due: </h5>
                 </div>
             </div>
         </div>
