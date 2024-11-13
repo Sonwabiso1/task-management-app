@@ -11,20 +11,23 @@ import UserNotifications from './pages/User/userNotifications';
 import Userprofile from './pages/User/userprofile';
 //Admin Imports
 import Adminprofile from './pages/Admin/adminProfile';
+import Admintasks from './pages/Admin/adminTasks';
+import AdminProjects from './pages/Admin/adminProjects';
 //Components Imports
 import Bars from './components/bars';
 import Footer from './components/footer';
 
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(true);
+  {/*const [showSidebar, setShowSidebar] = useState(true);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
-  };
+  };*/}
 
   return (
-    <BrowserRouter>
+    <Admintasks />
+    /*<BrowserRouter>
       <Bars toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
       <div className={`content ${showSidebar ? 'sidebar-open' : 'sidebar-closed'}`}>
         <Routes>
@@ -39,7 +42,8 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </BrowserRouter>
+    </BrowserRouter>*/
+    
   );
 }
 
