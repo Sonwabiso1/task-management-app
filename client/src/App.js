@@ -1,32 +1,29 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-//Landing Page imports
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+// Landing Page imports
 import Signup from './pages/Landing Pages/Signup';
 import MemberLog from './pages/Landing Pages/memberLogin';
 import About from './pages/Landing Pages/About';
-//User Imports
+// User Imports
 import UserProjects from './pages/User/userProjects';
 import UserTasks from './pages/User/userTasks';
 import UserNotifications from './pages/User/userNotifications';
 import Userprofile from './pages/User/userprofile';
-//Admin Imports
+// Admin Imports
 import Adminprofile from './pages/Admin/adminProfile';
-//Components Imports
+// Components Imports
 import Bars from './components/bars';
 import Footer from './components/footer';
 
-
-function App() {
-  const [showSidebar, setShowSidebar] = useState(true);
-
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
+function MainContent({ showSidebar, toggleSidebar }) {
+  const location = useLocation();
+  const isUserProfile = location.pathname === '/userprofile';
 
   return (
-    <BrowserRouter>
-      <Bars toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
-      <div className={`content ${showSidebar ? 'sidebar-open' : 'sidebar-closed'}`}>
+    <>
+      {/* Conditionally render Bars based on the current path */}
+      {!isUserProfile && <Bars toggleSidebar={toggleSidebar} showSidebar={showSidebar} />}
+      <div className={`content ${showSidebar && !isUserProfile ? 'sidebar-open' : 'sidebar-closed'}`}>
         <Routes>
           <Route path="/" element={<Signup />} />
           <Route path="/about" element={<About />} />
@@ -39,6 +36,20 @@ function App() {
         </Routes>
       </div>
       <Footer />
+    </>
+  );
+}
+
+function App() {
+  const [showSidebar, setShowSidebar] = useState(true);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  return (
+    <BrowserRouter>
+      <MainContent showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
     </BrowserRouter>
   );
 }
