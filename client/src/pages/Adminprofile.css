@@ -134,7 +134,7 @@ html, body {
   }
   
   footer a {
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-weight: bold;
   }
@@ -144,9 +144,15 @@ html, body {
   }
   
   /* Additional Titles */
-  .title, .valueTitle {
+  .title{
     background-color: #fff;
-    padding: 1rem;
+    padding-right: 3rem;
+    margin-right: 3rem;
+  } 
+  
+  .valueTitle {
+    background-color: #fff;
+    padding-left: 3rem;
     margin-right: 3rem;
   }
   

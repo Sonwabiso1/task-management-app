@@ -128,6 +128,14 @@ export default function Adminprofile() {
           </div>
         </div>
       )}
+
+      <div><h1>ACCOUNT INFORMATION</h1></div>
+      <br/>
+      <div id="accountInfo">
+        <form id="accountInfo">
+
+        </form>
+      </div>
     </div>
   );
 }
