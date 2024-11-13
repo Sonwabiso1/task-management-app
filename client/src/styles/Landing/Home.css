@@ -1,0 +1,88 @@
+nav img{
+    width: 100px;
+    height: 100px;
+}
+
+nav{
+    display: flex;
+}
+
+.navlist{
+    display: flex;
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: 1rem;
+    align-items: center;
+}
+
+.navlist li{
+    padding: 0.3rem;
+    font-size: 1.2rem;
+}
+
+.navlist li button{
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 6px;
+}
+
+.navlist li button{
+    color: white;
+}
+
+.navlist li button:hover{
+    background-color: #9c9add;
+}
+
+.navlist a{
+    text-decoration: none;
+    color:#2D2C4C;
+    font-weight: bold;
+}
+
+.navlist a:hover{
+    color: #9c9add;
+}
+
+.homecontent h1,h2 {
+    color:#2D2C4C;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.homecontent p{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2D2C4C;
+    display: flex;
+    justify-content: center;
+}
+
+.team{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: white;
+    margin-top: 2rem;
+}
+
+.teammember {
+    background-color: #9971b4;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out; /* Adds hover effect */
+}
+
+.member:hover {
+    transform: translateY(-10px); /* Hover effect for members */
+}
+
+.avatar {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 10px;
+    margin: 0 auto 10px;
+}

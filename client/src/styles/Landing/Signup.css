@@ -1,4 +1,4 @@
-/* Set the overall background color of the page */
+/* Center the signup form and style the page background */
 #signupPage {
     background-color: #2D2C4C;
     display: flex;
@@ -14,21 +14,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 30px 20px;
     background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
     max-width: 400px;
     width: 100%;
+    transition: all 0.3s ease-in-out;
 }
 
-#signupBar img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-/* Style the form */
+/* Style the form elements */
 #signupForm {
     display: flex;
     flex-direction: column;
@@ -38,34 +33,52 @@
 #signupForm h1 {
     color: #2D2C4C;
     text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
 }
 
 #signupForm label {
     color: #2D2C4C;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-#signupForm input {
-    padding: 10px;
+#signupForm input, #signupForm select {
+    padding: 12px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #D9D9D9;
+    background-color: #f5f5f5;
+    font-size: 1em;
+    color: #333;
+    transition: all 0.3s ease-in-out;
 }
 
-#signupForm input:focus {
+#signupForm input:focus, #signupForm select:focus {
     outline: none;
     border-color: #2D2C4C;
-    box-shadow: 0 0 5px rgba(45, 44, 76, 0.5);
+    box-shadow: 0 0 5px rgba(45, 44, 76, 0.3);
 }
 
-#image{
-    background-color: #2D2C4C;
-    margin: right;
-}
-
-button{
+/* Style the button */
+button {
     background-color: #2D2C4C;
     color: #fff;
+    border: none;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #39386C;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    background-color: #211E46;
 }

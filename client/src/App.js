@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //Landing Page imports
 import Signup from './pages/Landing Pages/Signup';
 import MemberLog from './pages/Landing Pages/memberLogin';
-import About from './pages/Landing Pages/About';
+import Home from './pages/Landing Pages/Home';
 //User Imports
 import UserProjects from './pages/User/userProjects';
 import UserTasks from './pages/User/userTasks';
@@ -25,19 +25,20 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Bars toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
-      <div className={`content ${showSidebar ? 'sidebar-open' : 'sidebar-closed'}`}>
+      {/* <Bars toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
+      <div className={`content ${showSidebar ? 'sidebar-open' : 'sidebar-closed'}`}> */}
         <Routes>
-          <Route path="/" element={<Signup />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          {/* <Route path="/about" element={<About />} />
           <Route path="/tasks" element={<UserTasks />} />
           <Route path="/memberlogin" element={<MemberLog />} />
           <Route path="/userprofile" element={<Userprofile />} />
           <Route path="/notification" element={<UserNotifications />} />
           <Route path="/projects" element={<UserProjects />} />
-          <Route path="/adminprofile" element={<Adminprofile />} />
+          <Route path="/adminprofile" element={<Adminprofile />} /> */}
         </Routes>
-      </div>
+      {/* </div> */}
       <Footer />
     </BrowserRouter>
   );
