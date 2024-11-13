@@ -1,8 +1,7 @@
-// TaskModal.js
 import React, { useState } from 'react';
 import '../styles/Admin/adminTasks.css';
 
-export default function TaskModal({ onClose }) {
+export default function TaskModal({ onClose, onSave }) {
     const [form, setForm] = useState({
         title: '',
         description: '',
@@ -17,9 +16,7 @@ export default function TaskModal({ onClose }) {
     };
 
     const handleSave = () => {
-        // Mock notification functionality
-        alert(`Notification sent to ${form.assignedTo}: Task "${form.title}" assigned.`);
-        onClose(); // Close the modal after saving
+        onSave(form); // Pass the form data back to Dashboard
     };
 
     return (
