@@ -62,7 +62,7 @@ body {
     display: flex;
     gap: 20px;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.6); /* Dark background for contrast */
+    background-color: #2D2C4C;
     border-radius: 10px;
   }
   
