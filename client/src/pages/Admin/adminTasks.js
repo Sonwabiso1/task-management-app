@@ -39,9 +39,7 @@ export default function Admintasks() {
             <aside className="sidebar">
                 <h2>Logo</h2>
                 <nav>
-                    <a href="#">🏠 Home</a>
                     <a href="#" onClick={openModal}>📁 Projects</a>
-                    <a href="#">🔔 Notifications</a>
                 </nav>
                 <button className="logout-btn">Logout</button>
             </aside>
@@ -52,7 +50,7 @@ export default function Admintasks() {
                 </div>
                 <div className="columns">
                     <div className="column to-do">
-                        <h3>To do</h3>
+                        <div><h3>To do</h3></div>
                         {tasks.filter(task => task.status === 'To do').map((task, index) => (
                             <div className="task-card" key={index}>
                                 <h4>{task.title}</h4>
@@ -64,9 +62,10 @@ export default function Admintasks() {
                                 <button onClick={() => updateTaskStatus(index, 'Done')}>Move to Done</button>
                             </div>
                         ))}
+                        <button onClick={openModal}>➕Add new task</button>
                     </div>
                     <div className="column in-progress">
-                        <h3>In Progress</h3>
+                        <div><h3>In Progress</h3></div>
                         {tasks.filter(task => task.status === 'In Progress').map((task, index) => (
                             <div className="task-card" key={index}>
                                 <h4>{task.title}</h4>
@@ -78,9 +77,10 @@ export default function Admintasks() {
                                 <button onClick={() => updateTaskStatus(index, 'Done')}>Move to Done</button>
                             </div>
                         ))}
+                        <button onClick={openModal}>➕Add new task</button>
                     </div>
                     <div className="column done">
-                        <h3>Done</h3>
+                        <div><h3>Done</h3></div>
                         {tasks.filter(task => task.status === 'Done').map((task, index) => (
                             <div className="task-card" key={index}>
                                 <h4>{task.title}</h4>
@@ -92,6 +92,7 @@ export default function Admintasks() {
                                 <button onClick={() => updateTaskStatus(index, 'In Progress')}>Move to In Progress</button>
                             </div>
                         ))}
+                        <button onClick={openModal}>➕Add new task</button>
                     </div>
                 </div>
             </main>

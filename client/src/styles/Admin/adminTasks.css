@@ -216,3 +216,15 @@
     background-color: #dc3545;
     color: white;
 }
+
+.to-do div{
+    background-color: #F1B81A;
+}
+
+.in-progress div{
+    background-color: #D1F91F;
+}
+
+.done div{
+    background-color: #09FF36;
+}
