@@ -47,7 +47,7 @@ function App() {
           
           {/* User Pages */}
           <Route path="/userprofile" element={<Userprofile />} />
-          <Route path="/tasks" element={<UserTasks />} />
+          <Route path="/projects/:projectId/tasks" element={<UserTasks />} />
           <Route path="/projects" element={<UserProjects />} />
           <Route path="/notification" element={<UserNotifications />} />
 

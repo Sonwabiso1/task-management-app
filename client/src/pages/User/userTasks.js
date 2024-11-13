@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../../styles/User/userTasks.css';
 
-export default function Tasks() {
+export default function UserTasks() {
   const { projectId } = useParams();  // Get projectId from URL params
   const [tasks, setTasks] = useState([]);  // State to hold tasks data
 
