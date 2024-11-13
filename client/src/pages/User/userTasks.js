@@ -3,12 +3,20 @@ import '../../styles/User/userTasks.css';
 
 export default function Tasks() {
     return (
-        <div id="mainDiv">
-            <h1>Project Name</h1>
-            <div id="content">
-                <h5>Task Title</h5>
-                <p>task info</p>
-            </div>
-        </div>
+        <div class="board">
+    <div class="column">
+        <div class="header todo">To do</div>
+        <div class="box"></div>
+    </div>
+    <div class="column">
+        <div class="header in-progress">In Progress</div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="column">
+        <div class="header done">Done</div>
+        <div class="box"></div>
+    </div>
+</div>
     );
 }
