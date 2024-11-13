@@ -1,6 +1,6 @@
 // Projects.js
 import React from 'react';
-import '../../styles/Admin/adminProjects.css';
+//import '../../styles/Admin/adminProjects.css';
 
 export default function AdminProjects() {
     return (
