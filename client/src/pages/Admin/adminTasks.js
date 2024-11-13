@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import TaskModal from '../../components/TaskModal'; // Import the TaskModal component
-import '../../styles/Admin/adminTasks.css';
+import '../../styles/Admin/adminTasks.css'; // Correct relative path
 
-export default function Dashboard() {
+
+
+
+
+export default function Admintasks() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [tasks, setTasks] = useState([]); // State to store tasks
 
