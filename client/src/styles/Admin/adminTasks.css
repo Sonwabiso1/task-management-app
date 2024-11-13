@@ -1,18 +1,26 @@
 /* Dashboard Container */
 .dashboard-container {
     display: flex;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    overflow: hidden; /* Prevents unwanted scroll if elements exceed viewport */
 }
 
 /* Sidebar */
 .sidebar {
-    width: 200px;
+    min-width: 200px; /* Fixed width for sidebar */
     background-color: #2d2c4c;
     color: white;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
 }
 
 .sidebar h2 {
     font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .sidebar nav a {
@@ -23,20 +31,22 @@
 }
 
 .logout-btn {
-    margin-top: 20px;
     color: white;
     background-color: #444;
     padding: 10px;
     border: none;
     cursor: pointer;
+    width: 100%;
+    text-align: center;
 }
 
 /* Board */
 .board {
-    flex: 1;
+    flex: 1; /* Allows the board to stretch to fill available width */
     padding: 20px;
     background-color: #1e1e2f;
     color: white;
+    overflow-y: auto; /* Allows scrolling if content overflows vertically */
 }
 
 .board-header {
@@ -50,25 +60,30 @@
 .columns {
     display: flex;
     justify-content: space-around;
+    gap: 20px;
+    height: calc(100vh - 100px); /* Adjust height for header and padding */
+    width: 100%; /* Makes columns stretch fully within the board */
 }
 
 .column {
-    width: 30%;
+    flex: 1; /* Each column takes equal space, stretching across the board */
+    min-width: 250px; /* Sets a minimum width to keep columns readable */
     background-color: #333;
     padding: 20px;
     border-radius: 8px;
+    overflow-y: auto; /* Allows scrolling if tasks overflow column */
 }
 
+/* Task Card */
 .task-card {
     margin-top: 10px;
-    height: 80px;
+    padding: 10px;
     background-color: white;
     color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 8px;
     cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Modal */
