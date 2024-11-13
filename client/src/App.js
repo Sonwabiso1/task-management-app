@@ -19,15 +19,17 @@ import Footer from './components/footer';
 
 
 function App() {
-  {/*const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(true);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
-  };*/}
+  };
 
   return (
+    <>
+    <Bars />
     <Admintasks />
-    /*<BrowserRouter>
+    {/*<BrowserRouter>
       <Bars toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
       <div className={`content ${showSidebar ? 'sidebar-open' : 'sidebar-closed'}`}>
         <Routes>
@@ -42,8 +44,8 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </BrowserRouter>*/
-    
+    </BrowserRouter>*/}
+    </>
   );
 }
 

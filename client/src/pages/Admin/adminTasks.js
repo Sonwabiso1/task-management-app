@@ -3,7 +3,7 @@ import TaskModal from '../../components/TaskModal'; // Import the TaskModal comp
 import '../../styles/Admin/adminTasks.css';
 
 export default function Dashboard() {
-    const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [tasks, setTasks] = useState([]); // State to store tasks
 
     const openModal = () => {
@@ -15,8 +15,19 @@ export default function Dashboard() {
     };
 
     const handleSaveTask = (newTask) => {
-        setTasks((prevTasks) => [...prevTasks, newTask]);
+        setTasks((prevTasks) => [
+            ...prevTasks,
+            { ...newTask, status: 'To do' } // Assign initial status as "To do"
+        ]);
         closeModal(); // Close modal after saving the task
+    };
+
+    const updateTaskStatus = (index, newStatus) => {
+        setTasks((prevTasks) =>
+            prevTasks.map((task, i) =>
+                i === index ? { ...task, status: newStatus } : task
+            )
+        );
     };
 
     return (
@@ -25,7 +36,7 @@ export default function Dashboard() {
                 <h2>Logo</h2>
                 <nav>
                     <a href="#">🏠 Home</a>
-                    <a href="#" onClick={openModal}>📁 Projects</a> {/* Button to open the modal */}
+                    <a href="#" onClick={openModal}>📁 Projects</a>
                     <a href="#">🔔 Notifications</a>
                 </nav>
                 <button className="logout-btn">Logout</button>
@@ -38,23 +49,45 @@ export default function Dashboard() {
                 <div className="columns">
                     <div className="column to-do">
                         <h3>To do</h3>
-                        {tasks.map((task, index) => (
+                        {tasks.filter(task => task.status === 'To do').map((task, index) => (
                             <div className="task-card" key={index}>
                                 <h4>{task.title}</h4>
                                 <p>{task.description}</p>
                                 <p>Priority: {task.priority}</p>
                                 <p>Assigned to: {task.assignedTo}</p>
                                 <p>Due: {task.dueDate}</p>
+                                <button onClick={() => updateTaskStatus(index, 'In Progress')}>Move to In Progress</button>
+                                <button onClick={() => updateTaskStatus(index, 'Done')}>Move to Done</button>
                             </div>
                         ))}
                     </div>
                     <div className="column in-progress">
                         <h3>In Progress</h3>
-                        {/* In-progress tasks can be added later */}
+                        {tasks.filter(task => task.status === 'In Progress').map((task, index) => (
+                            <div className="task-card" key={index}>
+                                <h4>{task.title}</h4>
+                                <p>{task.description}</p>
+                                <p>Priority: {task.priority}</p>
+                                <p>Assigned to: {task.assignedTo}</p>
+                                <p>Due: {task.dueDate}</p>
+                                <button onClick={() => updateTaskStatus(index, 'To do')}>Move to To Do</button>
+                                <button onClick={() => updateTaskStatus(index, 'Done')}>Move to Done</button>
+                            </div>
+                        ))}
                     </div>
                     <div className="column done">
                         <h3>Done</h3>
-                        {/* Completed tasks can be added later */}
+                        {tasks.filter(task => task.status === 'Done').map((task, index) => (
+                            <div className="task-card" key={index}>
+                                <h4>{task.title}</h4>
+                                <p>{task.description}</p>
+                                <p>Priority: {task.priority}</p>
+                                <p>Assigned to: {task.assignedTo}</p>
+                                <p>Due: {task.dueDate}</p>
+                                <button onClick={() => updateTaskStatus(index, 'To do')}>Move to To Do</button>
+                                <button onClick={() => updateTaskStatus(index, 'In Progress')}>Move to In Progress</button>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </main>
