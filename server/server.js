@@ -106,5 +106,27 @@ app.get('/api/projects', async (req, res) => {
   }
 });
 
+// POST route to create a new user (signup)
+app.post('/api/signup', async (req, res) => {
+  try {
+    const { name, email, password, organization } = req.body;
+    
+    // Create a new user with the data received in the request body
+    const newUser = new User({
+      name,
+      email,
+      password,
+      organization,
+      role: 'user' // Default role can be set here if desired
+    });
+
+    // Save the user to the database
+    await newUser.save();
+    res.status(201).json({ message: 'User registered successfully', user: newUser });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
