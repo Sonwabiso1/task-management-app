@@ -11,10 +11,10 @@ export default function Bars({ toggleSidebar, showSidebar }) {
                     <option>Project A</option>
                     <option>Project B</option>
                 </select>
-                <button onClick={toggleSidebar} className="toggle-btn">
+                {/* <button onClick={toggleSidebar} className="toggle-btn">
                     {showSidebar ? 'Hide Sidebar' : 'Show Sidebar'}
                 </button>
-                <h1>🔔🔴</h1>
+                <h1>🔔🔴</h1> */}
             </div>
             {showSidebar && (
                 <div id="sidebar">
