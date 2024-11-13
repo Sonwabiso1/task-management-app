@@ -1,60 +1,152 @@
-#profileSection {
-    text-align: center;
-    margin: 20px 0;
+/* Remove all default margins and paddings from the html and body */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
   }
   
+  /* Set the whole page background color and fill it fully */
+  #thewolepage {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2D2C4C; /* Set page background color */
+    color: rgb(0, 0, 0); /* Default text color is black */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh; /* Ensure the page takes the full height */
+    overflow: hidden; /* Prevent scrolling */
+  }
+  
+  /* Profile Section */
+  #profileSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Profile Picture */
   .profile-picture {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-bottom: 15px;
+    margin-top: 0;
   }
   
-  #info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+  /* Grey Box */
+  .grey-box {
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    text-align: center;
+    margin-top: 10px;
+    max-width: 300px;
+    border-radius: 5px;
   }
   
+  /* General Text Styling */
+  h1, h2, h3, span {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Info Section Items */
   .info-item {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* Spacing between h3 and span */
-    margin: 5px 0;
+    flex-direction: row;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
   }
   
-  .info-item h3, .info-item span {
-    font-size: 1.1em;
+  /* Button Styling */
+  button {
+    background-color: #f0f0f0;
+    color: #2D2C4C;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
   }
   
-  /* Modal */
+  button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Modal Styling */
   .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 1000;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
   }
   
   .modal-content {
     background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    width: 90%;
-    text-align: center;
+    border-radius: 5px;
+    width: 400px;
   }
   
   .modal-buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 10px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Footer Section */
+  footer {
+    background-color: #0d0d16; /* Darker background color */
+    color: black; /* Text color in footer is black */
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0; /* Remove extra space around footer */
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  footer a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  footer a:hover {
+    color: #f0f0f0;
+  }
+  
+  /* Additional Titles */
+  .title, .valueTitle {
+    background-color: #fff;
+    padding: 1rem;
+    margin-right: 3rem;
   }
   

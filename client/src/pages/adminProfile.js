@@ -13,56 +13,54 @@ export default function Adminprofile() {
     profilePicture: 'https://via.placeholder.com/150' // Placeholder image URL
   });
 
-  // Open Modal
   const openModal = () => setIsModalOpen(true);
-
-  // Close Modal
   const closeModal = () => setIsModalOpen(false);
 
-  // Handle Profile Data Change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfileData({ ...profileData, [name]: value });
   };
 
-  // Save Changes
   const handleSave = () => {
-    // Add saving logic here if needed (e.g., API call)
     setIsModalOpen(false);
   };
 
   return (
-    <>
+    <div id="thewolepage">
       <div id="profileSection">
         <img src={profileData.profilePicture} alt="Profile" className="profile-picture" />
-        <h1>{profileData.name}</h1>
-        <h2>{profileData.role} Profile</h2>
+
+        <div className="grey-box">
+          <h1>{profileData.name}</h1>
+          <h2>{profileData.role} Profile</h2>
+        </div>
+
         <button onClick={openModal} aria-label="Edit Profile">Edit Profile</button>
       </div>
+
       <div id="info">
-        <div className="info-item">
-          <h3>Role</h3>
-          <span>{profileData.role}</span>
+        <div className="info-item white-box">
+          <div class="title"><h3>Role</h3></div>
+          <div class="valueTitle"><span>{profileData.role}</span></div>
         </div>
-        <div className="info-item">
-          <h3>Location</h3>
-          <span>{profileData.location}</span>
+        <div className="info-item white-box">
+          <div class="title"><h3>Location</h3></div>
+          <div class="valueTitle"><span>{profileData.location}</span></div>
         </div>
-        <div className="info-item">
-          <h3>Contact</h3>
-          <span>{profileData.contact}</span>
+        <div className="info-item white-box">
+          <div class="title"><h3>Contact</h3></div>
+          <div class="valueTitle"><span>{profileData.contact}</span></div>
         </div>
-        <div className="info-item">
-          <h3>Email</h3>
-          <span>{profileData.email}</span>
+        <div className="info-item white-box">
+          <div class="title"><h3>Email</h3></div>
+         <div class="valueTitle"><span>{profileData.email}</span></div>
         </div>
-        <div className="info-item">
-          <h3>Status</h3>
-          <span>{profileData.status}</span>
+        <div className="info-item white-box">
+          <div class="title"><h3>Status</h3></div>
+         <div class="valueTitle"><span>{profileData.status}</span></div>
         </div>
       </div>
 
-      {/* Modal */}
       {isModalOpen && (
         <div className="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
           <div className="modal-content">
@@ -130,6 +128,6 @@ export default function Adminprofile() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
