@@ -1,15 +1,15 @@
 .user-profile-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 600px;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
   color: #333;
 }
 
-.profile-header {
+.profile-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,26 +17,45 @@
   color: white;
   padding: 20px;
   border-radius: 8px;
-  width: 100%;
+  width: 250px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .profile-picture {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background-color: #ccc;
   margin-bottom: 10px;
 }
 
-.profile-info {
+.bio-section {
   margin-top: 20px;
+  text-align: center;
   width: 100%;
+}
+
+.profile-info {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  width: 350px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info h3 {
+  color: #333;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 .profile-details label {
   display: flex;
   justify-content: space-between;
-  margin: 8px 0;
+  font-size: 0.9em;
+  margin: 10px 0;
+  color: #333;
 }
 
 .edit-save-button {
@@ -47,6 +66,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 1em;
 }
 
 .edit-save-button:hover {
@@ -60,4 +80,5 @@ textarea, input[type="text"], input[type="email"] {
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 1rem;
+  color: #333;
 }

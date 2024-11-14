@@ -34,21 +34,22 @@ export default function UserProfile() {
 
     return (
         <div className="user-profile-container">
-            <div className="profile-header">
+            <div className="profile-card">
                 <div className="profile-picture" />
                 <h2>{profile.name}</h2>
                 <p>User</p>
+                <div className="bio-section">
+                    <h3>Bio</h3>
+                    {isEditing ? (
+                        <textarea name="bio" value={profile.bio} onChange={handleChange} />
+                    ) : (
+                        <p>{profile.bio}</p>
+                    )}
+                </div>
             </div>
 
             <div className="profile-info">
-                <h3>Bio</h3>
-                {isEditing ? (
-                    <textarea name="bio" value={profile.bio} onChange={handleChange} />
-                ) : (
-                    <p>{profile.bio}</p>
-                )}
-
-                <h3>User Profile</h3>
+                <h3>User profile</h3>
                 <div className="profile-details">
                     <label>
                         Name Surname:
@@ -83,11 +84,10 @@ export default function UserProfile() {
                         )}
                     </label>
                 </div>
+                <button onClick={isEditing ? handleSave : handleEdit} className="edit-save-button">
+                    {isEditing ? 'Save' : 'Edit profile'}
+                </button>
             </div>
-
-            <button onClick={isEditing ? handleSave : handleEdit} className="edit-save-button">
-                {isEditing ? 'Save' : 'Edit profile'}
-            </button>
         </div>
     );
 }
