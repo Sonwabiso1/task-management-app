@@ -1,0 +1,42 @@
+.home-login-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.home-login-container h1 {
+  margin-bottom: 10px;
+}
+
+.home-login-container p {
+  margin-bottom: 20px;
+}
+
+.options-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.option-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.option-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.option-card .icon {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
