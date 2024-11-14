@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-//Landing Page imports
-import Signup from './pages/Landing Pages/Signup';
-import Home from './pages/Landing Pages/Home';
 
 import Footer from './components/footer';
-import Login from './pages/Landing Pages/Login';
 
-import Dashboard from './pages/Dashboard';
-import Layout from './pages/Layout';
-import Projects from './pages/Projects';
-import Notifications from './pages/Notifications'
+//Landing Page imports
+import Home from './landing-pages/Home';
+import Signup from './landing-pages/Signup';
+import Login from './landing-pages/Login';
+
+import Dashboard from './dashboard/Dashboard';
+import Layout from './dashboard/Layout';
+import Projects from './dashboard/Projects';
+import Notifications from './dashboard/Notifications'
 
 
 function App() {

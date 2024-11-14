@@ -1,12 +1,12 @@
 import React from 'react'
-import '../../styles/Landing/Home.css'
-import logo from '../../assets/logo.png';
+import '../styles/landing/Home.css'
+import logo from '../assets/logo.png';
 import Carousel from './Carousel';
-import Sonwabiso from '../../assets/sonwabiso.jpg';
-import Nikitha from '../../assets/nikitha.jpg';
-import Robyn from '../../assets/robyn.jpg';
-import Du from '../../assets/du.jpg';
-import Monica from '../../assets/monica.jpg';
+import Sonwabiso from '../assets/sonwabiso.jpg';
+import Nikitha from '../assets/nikitha.jpg';
+import Robyn from '../assets/robyn.jpg';
+import Du from '../assets/du.jpg';
+import Monica from '../assets/monica.jpg';
 
 export default function Home(){
 

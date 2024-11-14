@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/Landing/Carousel.css"; // Import the stylesheet
-import collab from '../../assets/collaboration.jpg';
-import kanban from '../../assets/kanban.jpg';
-import user from '../../assets/user.jpg';
+import "../styles/landing/Carousel.css"; // Import the stylesheet
+import collab from '../assets/collaboration.jpg';
+import kanban from '../assets/kanban.jpg';
+import user from '../assets/user.jpg';
 
 
 const carouselData = [
