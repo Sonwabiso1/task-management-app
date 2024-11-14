@@ -1,136 +1,63 @@
-.profile-page {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-}
-
-.left-column {
+.user-profile-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 50%;
-}
-
-#right-section {
-  width: 50%;
-}
-
-.card {
-  padding: 20px;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-.purple-card {
-  background-color: #2D2C4C;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers content horizontally */
-  justify-content: center;
-}
-
-.grey-card {
-  background-color: #f0f0f0;
-  color: black;
-  
-}
-
-.white-card {
-  background-color: white;
-  color: black;
-  border: 1px solid #ddd;
-}
-
-#profile-pic {
-  width: 150px; 
-  height: 150px; 
-  border-radius: 50%; 
-  object-fit: cover;
-  margin-top: -6px; 
-}
-
-.upload-input {
-  display: block;
-  margin-top: 10px;
-}
-
-#edit-profile {
-  margin-top: 20px;
-}
-
-/* Modal background overlay */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensures the modal is on top */
-  visibility: hidden; /* Initially hidden */
-  opacity: 0;
-  transition: visibility 0s, opacity 0.3s ease-in-out;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
-/* Show the modal when active */
-.modal.show {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* Modal content */
-.modal-content {
-  background-color: white;
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2d2c4c;
+  color: white;
   padding: 20px;
   border-radius: 8px;
-  width: 400px;
-  max-width: 100%;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 
-.modal-content input,
-.modal-content textarea {
-  width: 90%;
-  margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-bottom: 10px;
 }
 
-.save-button{
-  padding: 10px 15px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.profile-info {
+  margin-top: 20px;
+  width: 100%;
 }
 
-.save-button:hover {
-  background-color: #45a049;
-}
-/* Modal action buttons container */
-.modal-actions {
+.profile-details label {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin: 8px 0;
 }
 
-/* Cancel button styling */
-.cancel-button {
-  background-color: #f44336; /* Red color */
+.edit-save-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2d2c4c;
   color: white;
   border: none;
-  padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.cancel-button:hover {
-  background-color: #e53935; /* Darker red */
+.edit-save-button:hover {
+  background-color: #434273;
 }
 
+textarea, input[type="text"], input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
