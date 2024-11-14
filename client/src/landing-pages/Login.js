@@ -18,7 +18,7 @@ const Login = () => {
       });
 
       if (response.ok) {
-        navigate('/home');
+        navigate('/navbar');
       } else {
         setError('Invalid email or password');
       }
