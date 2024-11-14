@@ -45,12 +45,12 @@ function App() {
           <Route path="/about" element={<About />} />
           
           {/* User Pages */}
-          <Route path="/userprofile" element={<Userprofile />} />
+          {/* <Route path="/userprofile" element={<Userprofile />} />
           <Route path="/projects/:projectId/tasks" element={<UserTasks />} />
           <Route path="/projects" element={<UserProjects />} />
           <Route path="/notification" element={<UserNotifications />} />
           <Route path="/projects" element={<UserProjects />} />
-          <Route path="/adminprofile" element={<Adminprofile />} /> 
+          <Route path="/adminprofile" element={<Adminprofile />} />  */}
       {/* </div> */}
       <Footer />
     </BrowserRouter>
