@@ -50,7 +50,7 @@ function App() {
           <Route path="/projects" element={<UserProjects />} />
           <Route path="/notification" element={<UserNotifications />} />
           <Route path="/projects" element={<UserProjects />} />
-          <Route path="/adminprofile" element={<Adminprofile />} /> */}
+          <Route path="/adminprofile" element={<Adminprofile />} /> 
       {/* </div> */}
       <Footer />
     </BrowserRouter>
