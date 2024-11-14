@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/Landing/Signup.css';
 
 export default function Signup() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -41,6 +43,7 @@ export default function Signup() {
             const data = await response.json();
             if (response.ok) {
                 alert('User registered successfully!');
+                navigate('/home'); // Redirect to the home page on success
             } else {
                 alert(`Registration failed: ${data.error}`);
             }

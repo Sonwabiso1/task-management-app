@@ -11,7 +11,7 @@ import Monica from '../../assets/monica.jpg';
 export default function Home(){
 
     return (
-       <div>
+       <div className='home'>
             <nav>
                 <img src={logo} alt="Logo"/>
                 <ul className='navlist'>

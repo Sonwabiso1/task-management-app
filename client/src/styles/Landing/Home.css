@@ -1,9 +1,13 @@
-nav img{
+.home{
+    margin-bottom:8rem;
+}
+
+.home nav img{
     width: 100px;
     height: 100px;
 }
 
-nav{
+.home nav{
     display: flex;
 }
 
@@ -22,17 +26,22 @@ nav{
 
 .navlist li button{
     border-radius: 4px;
-    font-weight: bold;
     padding: 6px;
+    background-color:#2D2C4C;
 }
 
-.navlist li button{
+.navlist li button a{
     color: white;
 }
 
 .navlist li button:hover{
     background-color: #9c9add;
 }
+
+.navlist li button a:hover{
+    color:black;
+}
+
 
 .navlist a{
     text-decoration: none;
@@ -61,14 +70,16 @@ nav{
 
 .team{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     color: white;
     margin-top: 2rem;
+    align-items:center;
+    gap:1rem;
 }
 
 .teammember {
-    background-color: #9971b4;
+    background-color: #2D2C4C;
     padding: 20px;
     width: 200px;
     text-align: center;
