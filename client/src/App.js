@@ -10,11 +10,13 @@ import Login from './landing-pages/Login';
 
 //logged-in pages
 import HomeLogin from './user-pages/HomeLogin';
+import Notifications from './user-pages/usernotifications';
 
 
 function App() {
   return (
     <BrowserRouter>
+    <Notifications/>
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/signup" element={<Signup />} />
