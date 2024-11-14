@@ -1,0 +1,44 @@
+#profile-board{
+    text-align: center;
+    background-color: #2D2C4C;
+    color: #fff;
+    margin-right: 120px;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+#profile-page{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.details{
+    float: right;
+}
+
+#bio-section p{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 120px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#bio-section h1{
+    margin-right: 120px;
+    text-align: center;
+}
+
+#edit-profile{
+    margin: 0 auto;
+    background-color: #2D2C4C;
+    border-radius: 40px;
+}
+
+#profile-pic{
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+}

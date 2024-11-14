@@ -1,0 +1,84 @@
+/* Center the login form and style the page background */
+.loginPage {
+    background-color: #2D2C4C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Style the login form container */
+.loginBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Style the form elements */
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.loginForm h1 {
+    color: #2D2C4C;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.loginForm label {
+    color: #2D2C4C;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.loginForm input {
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    font-size: 1em;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+.loginForm input:focus {
+    outline: none;
+    border-color: #2D2C4C;
+    box-shadow: 0 0 5px rgba(45, 44, 76, 0.3);
+}
+
+/* Style the button */
+.loginBar button {
+    background-color: #2D2C4C;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.3s ease-in-out;
+}
+
+.loginBar button:hover {
+    background-color: #39386C;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.loginBar button:active {
+    background-color: #211E46;
+}
