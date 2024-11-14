@@ -10,6 +10,8 @@ import Login from './landing-pages/Login';
 
 //logged-in pages
 import HomeLogin from './user-pages/HomeLogin';
+import Notifications from './user-pages/usernotifications';
+import UserProfile from './user-pages/userprofile';
 import AdminProjects from './admin-pages/AdminProjects';
 
 
