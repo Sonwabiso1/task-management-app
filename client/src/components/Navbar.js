@@ -22,7 +22,7 @@ const Navbar = () => {
       <Link to="/projects" className="sidebar-item">
         <FaProjectDiagram /> Projects
       </Link>
-      <Link to="/home" className="sidebar-item sidebar-item-logout">
+      <Link to="/logout" className="sidebar-item sidebar-item-logout">
         <FaSignOutAlt /> Logout
       </Link>
     </nav>

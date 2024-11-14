@@ -40,7 +40,8 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: String,
   organization: String,
-  role: { type: String, enum: ['admin', 'user'] },
+  teamName: String,  // New field
+  role: { type: String, enum: ['student', 'team lead', 'user'] },  // Adjusted to include new roles
 }, { collection: 'users' });
 const User = mongoose.model('User', userSchema);
 
@@ -109,7 +110,7 @@ app.get('/api/projects', async (req, res) => {
 // POST route to create a new user (signup)
 app.post('/api/signup', async (req, res) => {
   try {
-    const { name, email, password, organization } = req.body;
+    const { name, email, password, organization, teamName, role } = req.body;
     
     // Create a new user with the data received in the request body
     const newUser = new User({
@@ -117,7 +118,8 @@ app.post('/api/signup', async (req, res) => {
       email,
       password,
       organization,
-      role: 'user' // Default role can be set here if desired
+      teamName,  // Store the team name
+      role: role || 'user' // Default role if not specified
     });
 
     // Save the user to the database
