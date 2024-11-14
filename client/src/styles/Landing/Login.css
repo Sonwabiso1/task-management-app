@@ -1,5 +1,5 @@
-/* Center the signup form and style the page background */
-#signupPage {
+/* Center the login form and style the page background */
+.loginPage {
     background-color: #2D2C4C;
     display: flex;
     justify-content: center;
@@ -9,8 +9,8 @@
     box-sizing: border-box;
 }
 
-/* Style the signup form container */
-#signupBar {
+/* Style the login form container */
+.loginBar {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,26 +24,26 @@
 }
 
 /* Style the form elements */
-#signupForm {
+.loginForm {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-#signupForm h1 {
+.loginForm h1 {
     color: #2D2C4C;
     text-align: center;
     margin-bottom: 20px;
     font-size: 1.8em;
 }
 
-#signupForm label {
+.loginForm label {
     color: #2D2C4C;
     font-weight: bold;
     margin-top: 15px;
 }
 
-#signupForm input, #signupForm select {
+.loginForm input {
     padding: 12px;
     margin-top: 5px;
     border: 1px solid #ccc;
@@ -54,14 +54,14 @@
     transition: all 0.3s ease-in-out;
 }
 
-#signupForm input:focus, #signupForm select:focus {
+.loginForm input:focus {
     outline: none;
     border-color: #2D2C4C;
     box-shadow: 0 0 5px rgba(45, 44, 76, 0.3);
 }
 
 /* Style the button */
-#signupBar button {
+.loginBar button {
     background-color: #2D2C4C;
     color: #fff;
     border: none;
@@ -74,11 +74,11 @@
     transition: all 0.3s ease-in-out;
 }
 
-#signupBar button:hover {
+.loginBar button:hover {
     background-color: #39386C;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-#signupBar button:active {
+.loginBar button:active {
     background-color: #211E46;
 }

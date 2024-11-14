@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 // Landing Page imports
 import Signup from './pages/Landing Pages/Signup';
-import MemberLog from './pages/Landing Pages/memberLogin';
-import About from './pages/Landing Pages/About';
-// User Imports
-import UserProjects from './pages/User/userProjects';
-import UserTasks from './pages/User/userTasks';
-import UserNotifications from './pages/User/userNotifications';
-import Userprofile from './pages/User/userprofile';
-// Admin Imports
-import Adminprofile from './pages/Admin/adminProfile';
-// Components Imports
-import Bars from './components/bars';
+import Home from './pages/Landing Pages/Home';
+
 import Footer from './components/footer';
+import Login from './pages/Landing Pages/Login';
+
+import Dashboard from './pages/Dashboard';
+import Layout from './pages/Layout';
+import Projects from './pages/Projects';
+import Notifications from './pages/Notifications'
 
 function MainContent({ showSidebar, toggleSidebar }) {
   const location = useLocation();
@@ -32,9 +29,8 @@ function MainContent({ showSidebar, toggleSidebar }) {
           <Route path="/userprofile" element={<Userprofile />} />
           <Route path="/notification" element={<UserNotifications />} />
           <Route path="/projects" element={<UserProjects />} />
-          <Route path="/adminprofile" element={<Adminprofile />} />
-        </Routes>
-      </div>
+          <Route path="/adminprofile" element={<Adminprofile />} /> */}
+      {/* </div> */}
       <Footer />
     </>
   );
