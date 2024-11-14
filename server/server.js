@@ -137,7 +137,7 @@ app.post('/api/login', async (req, res) => {
     const user = await User.findOne({ email, password });
 
     if (user) {
-      res.status(200).json({ message: 'Login successful' });
+      res.status(200).json({ message: 'Login successful', user });
     } else {
       res.status(401).json({ error: 'Invalid email or password' });
     }
@@ -145,6 +145,30 @@ app.post('/api/login', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+
+// POST route to create a new project
+app.post('/api/projects', async (req, res) => {
+  try {
+    const { name, description, createdBy, organization } = req.body;
+    
+    // Create new project
+    const newProject = new Project({
+      name,
+      description,
+      createdBy, // Assumes `createdBy` is passed in the request, referencing the user ID
+      organization,
+      status: 'active', // Default status
+      members: [createdBy] // Adds the creator as the first member
+    });
+
+    await newProject.save();
+    res.status(201).json({ message: 'Project created successfully', project: newProject });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

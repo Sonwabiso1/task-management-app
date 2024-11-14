@@ -10,6 +10,7 @@ import Login from './landing-pages/Login';
 
 //logged-in pages
 import HomeLogin from './user-pages/HomeLogin';
+import AdminProjects from './admin-pages/AdminProjects';
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
     <Route path="/login" element={<Login />} />
     <Route element={<NavbarLayout />}> {/* Conditional rendering for logged-in routes */}
       <Route path="/logged-in-home" element={<HomeLogin />} />
-      {/* Add more logged-in user pages here */}
+          {/* Add more logged-in user pages here */}
+      <Route path="/adminprojects" element={<AdminProjects/>}/>
     </Route>
     <Route path="/logout" element={<Home />} />
   </Routes>

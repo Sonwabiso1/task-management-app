@@ -1,13 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaProjectDiagram, FaBell, FaUser } from 'react-icons/fa'; // Import icons from react-icons
-import '../styles/user/HomeLogin.css'; // Create and style HomeLogin.css as needed
+import { FaProjectDiagram, FaBell, FaUser } from 'react-icons/fa';
+import '../styles/user/HomeLogin.css';
 
 const HomeLogin = () => {
   const navigate = useNavigate();
 
-  // Navigation handlers
-  const goToProjects = () => navigate('/projects');
+  // Navigation handler for projects
+  const goToProjects = () => {
+    const userRole = localStorage.getItem('userRole');
+    if (userRole === 'admin') {
+      navigate('/adminprojects'); // Redirect to AdminProjects if user is an admin
+    } else {
+      navigate('/user-projects'); // Redirect to UserProjects if user is not an admin
+    }
+  };
+
+  // Other navigation handlers
   const goToNotifications = () => navigate('/notifications');
   const goToProfile = () => navigate('/profile');
 

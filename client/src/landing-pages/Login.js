@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/landing/Login.css'
+import '../styles/landing/Login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +17,12 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
       });
 
+      const data = await response.json();
       if (response.ok) {
+        // Store user role in localStorage
+        localStorage.setItem('userRole', data.user.role);
+
+        // Navigate to home page
         navigate('/logged-in-home');
       } else {
         setError('Invalid email or password');
