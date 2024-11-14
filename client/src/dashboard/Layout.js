@@ -2,7 +2,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import './Dashboard.css'; // Optional styling
+// import './Dashboard.css'; // Optional styling
 
 const Layout = () => {
   return (
