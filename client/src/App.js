@@ -15,16 +15,8 @@ import Notifications from './dashboard/Notifications'
 
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(true);
-
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
-
   return (
     <BrowserRouter>
-      {/* <Bars toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
-      <div className={`content ${showSidebar ? 'sidebar-open' : 'sidebar-closed'}`}> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
@@ -40,19 +32,6 @@ function App() {
         {/* Separate route for "/logout" */}
         <Route path="/logout" element={<Home/>  } />
       </Routes>
-          {/* <Route path="/about" element={<About />} />
-          <Route path="/tasks" element={<UserTasks />} />
-          <Route path="/memberlogin" element={<MemberLog />} />
-          <Route path="/about" element={<About />} />
-          
-          {/* User Pages */}
-          {/* <Route path="/userprofile" element={<Userprofile />} />
-          <Route path="/projects/:projectId/tasks" element={<UserTasks />} />
-          <Route path="/projects" element={<UserProjects />} />
-          <Route path="/notification" element={<UserNotifications />} />
-          <Route path="/projects" element={<UserProjects />} />
-          <Route path="/adminprofile" element={<Adminprofile />} />  */}
-      {/* </div> */}
       <Footer />
     </BrowserRouter>
   );
