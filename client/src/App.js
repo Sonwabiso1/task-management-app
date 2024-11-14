@@ -17,7 +17,6 @@ import UserProfile from './user-pages/userprofile';
 function App() {
   return (
     <BrowserRouter>
-    <UserProfile/>
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/signup" element={<Signup />} />
