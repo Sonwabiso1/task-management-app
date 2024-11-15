@@ -9,28 +9,28 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:5000/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+  e.preventDefault();
+  try {
+    const response = await fetch('http://localhost:5000/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
 
-      const data = await response.json();
-      if (response.ok) {
-        // Store user role in localStorage
-        localStorage.setItem('userRole', data.user.role);
+    const data = await response.json();
+    if (response.ok) {
+      localStorage.setItem('userId', data.user.id); // Save user ID in local storage
 
-        // Navigate to home page
-        navigate('/logged-in-home');
-      } else {
-        setError('Invalid email or password');
-      }
-    } catch (error) {
-      setError('Failed to login. Please try again.');
+      // Navigate to user-specific page
+      navigate(`/logged-in-home/${data.user.id}`);
+    } else {
+      setError('Invalid email or password');
     }
-  };
+  } catch (error) {
+    setError('Failed to login. Please try again.');
+  }
+};
+
 
   return (
     <div className="loginPage">

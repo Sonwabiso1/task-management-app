@@ -7,6 +7,7 @@
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
+    margin: 0;
 }
 
 /* Style the signup form container */
@@ -17,10 +18,15 @@
     padding: 30px 20px;
     background-color: white;
     border-radius: 12px;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     max-width: 400px;
     width: 100%;
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#signupBar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Style the form elements */
@@ -43,7 +49,9 @@
     margin-top: 15px;
 }
 
-#signupForm input, #signupForm select {
+/* Shared input and select styles */
+#signupForm input,
+#signupForm select {
     padding: 12px;
     margin-top: 5px;
     border: 1px solid #ccc;
@@ -51,16 +59,17 @@
     background-color: #f5f5f5;
     font-size: 1em;
     color: #333;
-    transition: all 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-#signupForm input:focus, #signupForm select:focus {
+#signupForm input:focus,
+#signupForm select:focus {
     outline: none;
     border-color: #2D2C4C;
     box-shadow: 0 0 5px rgba(45, 44, 76, 0.3);
 }
 
-/* Style the button */
+/* Style the submit button */
 #signupBar button {
     background-color: #2D2C4C;
     color: #fff;
@@ -71,7 +80,7 @@
     cursor: pointer;
     font-weight: bold;
     font-size: 1em;
-    transition: all 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 #signupBar button:hover {
@@ -82,20 +91,14 @@
 #signupBar button:active {
     background-color: #211E46;
 }
-#signupForm select {
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f5f5f5;
-    font-size: 1em;
-    color: #333;
-    transition: all 0.3s ease-in-out;
-}
 
-/* Focus styles for select elements */
-#signupForm select:focus {
-    outline: none;
-    border-color: #2D2C4C;
-    box-shadow: 0 0 5px rgba(45, 44, 76, 0.3);
-}   
+/* Mobile responsiveness */
+@media (max-width: 500px) {
+    #signupBar {
+        padding: 20px 15px;
+    }
+
+    #signupForm h1 {
+        font-size: 1.5em;
+    }
+}

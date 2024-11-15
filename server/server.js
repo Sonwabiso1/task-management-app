@@ -137,7 +137,17 @@ app.post('/api/login', async (req, res) => {
     const user = await User.findOne({ email, password });
 
     if (user) {
-      res.status(200).json({ message: 'Login successful', user });
+      // You can choose to send selective user details if needed
+      res.status(200).json({
+        message: 'Login successful',
+        user: {
+          id: user._id,
+          name: user.name,
+          email: user.email,
+          organization: user.organization,
+          role: user.role,
+        },
+      });
     } else {
       res.status(401).json({ error: 'Invalid email or password' });
     }
@@ -145,6 +155,7 @@ app.post('/api/login', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
 
 
 // POST route to create a new project
@@ -167,6 +178,38 @@ app.post('/api/projects', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+});
+
+// Route to fetch tasks for a specific project
+app.get('/api/projects/:projectId/tasks', async (req, res) => {
+    try {
+        const { projectId } = req.params;
+        const tasks = await Task.find({ projectId });
+        res.json(tasks);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Route to add a new task to a specific project
+app.post('/api/projects/:projectId/tasks', async (req, res) => {
+    try {
+        const { projectId } = req.params;
+        const { title, description, priority } = req.body;
+
+        const newTask = new Task({
+            title,
+            description,
+            priority,
+            status: 'To Do',
+            projectId,
+        });
+
+        await newTask.save();
+        res.status(201).json({ message: 'Task created successfully', task: newTask });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
 

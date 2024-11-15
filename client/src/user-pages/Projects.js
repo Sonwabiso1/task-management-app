@@ -10,7 +10,7 @@ export default function AdminProjects() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/projects?role=admin');
+        const response = await fetch('http://localhost:5000/api/projects');
         const data = await response.json();
         if (response.ok) {
           setProjects(data);
@@ -53,7 +53,7 @@ export default function AdminProjects() {
     }
   };
 
-  const handleProjectClick = (projectId) => navigate(`/admin/tasks/${projectId}`);
+  const handleProjectClick = (projectId) => navigate(`/projects/${projectId}/tasks`);
 
   return (
     <div className="admin-projects">

@@ -7,9 +7,8 @@ export default function Signup() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        teamName: '', // New team name field
-        organization: 'capaciti',
-        role: 'student',
+        teamName: '', // Team name field remains
+        organization: 'capaciti', // Default value
         password: '',
         confirmPass: ''
     });
@@ -39,7 +38,7 @@ export default function Signup() {
             const data = await response.json();
             if (response.ok) {
                 alert('User registered successfully!');
-                navigate('/home');
+                navigate('/logged-in-home');
             } else {
                 setError(`Registration failed: ${data.error}`);
             }
@@ -53,10 +52,10 @@ export default function Signup() {
         <div id="signupPage">
             <div id="signupBar">
                 <form id="signupForm" onSubmit={handleSubmit}>
-                    <h1>Sign up</h1>
+                    <h1>Sign Up</h1>
                     {error && <p style={{ color: 'red' }}>{error}</p>}
                     
-                    <label htmlFor="name">Full name:</label>
+                    <label htmlFor="name">Full Name:</label>
                     <input
                         type="text"
                         id="name"
@@ -74,7 +73,7 @@ export default function Signup() {
                         required
                     />
 
-                    <label htmlFor="teamName">Team name:</label>
+                    <label htmlFor="teamName">Team Name:</label>
                     <input
                         type="text"
                         id="teamName"
@@ -83,23 +82,13 @@ export default function Signup() {
                         required
                     />
 
-                    <label htmlFor="organization">Choose an organization:</label>
+                    <label htmlFor="organization">Organization:</label>
                     <select
                         id="organization"
                         value={formData.organization}
                         onChange={handleChange}
                     >
                         <option value="capaciti">Capaciti</option>
-                    </select>
-
-                    <label htmlFor="role">Choose your role:</label>
-                    <select
-                        id="role"
-                        value={formData.role}
-                        onChange={handleChange}
-                    >
-                        <option value="student">Student</option>
-                        <option value="team leader">Team Leader</option>
                     </select>
 
                     <label htmlFor="password">Password:</label>
@@ -111,7 +100,7 @@ export default function Signup() {
                         required
                     />
 
-                    <label htmlFor="confirmPass">Confirm password:</label>
+                    <label htmlFor="confirmPass">Confirm Password:</label>
                     <input
                         type="password"
                         id="confirmPass"

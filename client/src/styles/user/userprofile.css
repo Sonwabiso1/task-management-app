@@ -73,7 +73,7 @@
   background-color: #434273;
 }
 
-textarea, input[type="text"], input[type="email"] {
+.profile-details textarea, input[type="text"], input[type="email"] {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
