@@ -68,3 +68,20 @@
 .add-task button:hover {
     background-color: #357abd;
 }
+
+.add-task select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.add-task select:hover {
+    background-color: #e0e7ff;
+    color: #2d2c4c;
+}

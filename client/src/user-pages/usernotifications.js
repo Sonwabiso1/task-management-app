@@ -1,36 +1,46 @@
-// Notifications.js
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import '../styles/user/userNotification.css'
-export default function Notifications() {
-    const [notifications, setNotifications] = useState([]);
+import React, { useEffect, useState } from 'react';
+import '../styles/user/userNotification.css';
 
-    useEffect(() => {
-        // Fetch notifications from the backend
-        axios.get('http://localhost:5000/api/notifications')
-            .then(response => {
-                setNotifications(response.data);
-            })
-            .catch(error => {
-                console.error("There was an error fetching the notifications!", error);
-            });
-    }, []);
+const Notifications = () => {
+  const [notifications, setNotifications] = useState([]);
+  const [error, setError] = useState(null);
 
-    return (
-        <div className="notifications-container">
-            <div className="notifications-header">
-                <h2>Notifications</h2>
-            </div>
-            <ul className="notifications-list">
-                {notifications.map(notification => (
-                    <li key={notification.id} className="notification-item">
-                        <span role="img" aria-label="bell">🔔</span> {notification.title}
-                        <div className="due-date">
-                            <span role="img" aria-label="clock">🕒</span> Due: {notification.dueDate}
-                        </div>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
-}
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/notifications');
+        if (!response.ok) {
+          throw new Error('Failed to fetch notifications');
+        }
+        const data = await response.json();
+        setNotifications(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchNotifications();
+  }, []);
+
+  return (
+    <div className="notifications">
+      <h1>Notifications</h1>
+      {error && <p className="error">{error}</p>}
+      <ul>
+        {notifications.length > 0 ? (
+          notifications.map((notification) => (
+            <li key={notification.id} className="notification-card">
+              <h2>{notification.title}</h2>
+              <p>{notification.message}</p>
+              <span>{new Date(notification.date).toLocaleString()}</span>
+            </li>
+          ))
+        ) : (
+          <p>No notifications to display.</p>
+        )}
+      </ul>
+    </div>
+  );
+};
+
+export default Notifications;

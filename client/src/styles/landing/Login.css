@@ -84,3 +84,16 @@
 .loginBar button:active {
     background-color: #211E46;
 }
+.forgotPasswordButton {
+  background: none;
+  border: none;
+  color: #2D2C4C;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.forgotPasswordButton:hover {
+  color: #39386C;
+}

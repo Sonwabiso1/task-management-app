@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -26,7 +25,7 @@ const taskSchema = new mongoose.Schema({
   title: String,
   description: String,
   priority: String,
-  status: Boolean,
+  status: String,
   assignedTo: mongoose.Schema.Types.ObjectId, // Reference to User
   createdBy: mongoose.Schema.Types.ObjectId,  // Reference to User
   projectId: mongoose.Schema.Types.ObjectId,  // Reference to Project
@@ -77,11 +76,14 @@ app.get('/api/tasks', async (req, res) => {
   }
 });
 
-// GET route to fetch all users
-app.get('/api/users', async (req, res) => {
+// GET route to fetch a user by ID
+app.get('/api/users/:id', async (req, res) => {
   try {
-    const users = await User.find();
-    res.json(users);
+    const user = await User.findById(req.params.id).select('-password'); // Exclude password field
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json(user);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -100,7 +102,9 @@ app.get('/api/notifications', async (req, res) => {
 // GET route to fetch all projects
 app.get('/api/projects', async (req, res) => {
   try {
-    const projects = await Project.find();
+    const { name } = req.query;
+    const query = name ? { name } : {};
+    const projects = await Project.find(query);
     res.json(projects);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -112,7 +116,6 @@ app.post('/api/signup', async (req, res) => {
   try {
     const { name, email, password, organization, teamName, role } = req.body;
     
-    // Create a new user with the data received in the request body
     const newUser = new User({
       name,
       email,
@@ -122,7 +125,6 @@ app.post('/api/signup', async (req, res) => {
       role: role || 'user' // Default role if not specified
     });
 
-    // Save the user to the database
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully', user: newUser });
   } catch (error) {
@@ -137,7 +139,6 @@ app.post('/api/login', async (req, res) => {
     const user = await User.findOne({ email, password });
 
     if (user) {
-      // You can choose to send selective user details if needed
       res.status(200).json({
         message: 'Login successful',
         user: {
@@ -156,21 +157,18 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-
-
 // POST route to create a new project
 app.post('/api/projects', async (req, res) => {
   try {
     const { name, description, createdBy, organization } = req.body;
     
-    // Create new project
     const newProject = new Project({
       name,
       description,
-      createdBy, // Assumes `createdBy` is passed in the request, referencing the user ID
+      createdBy,
       organization,
-      status: 'active', // Default status
-      members: [createdBy] // Adds the creator as the first member
+      status: 'active',
+      members: [createdBy]
     });
 
     await newProject.save();
@@ -210,6 +208,38 @@ app.post('/api/projects/:projectId/tasks', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
+});
+
+// PATCH route to update a task (for editing or changing status)
+app.patch('/api/projects/:projectId/tasks/:taskId', async (req, res) => {
+    try {
+        const { taskId } = req.params;
+        const updatedTask = await Task.findByIdAndUpdate(taskId, req.body, { new: true });
+        res.json(updatedTask);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// POST route to handle forgot password
+app.post('/api/forgot-password', async (req, res) => {
+  const { email } = req.body;
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ error: 'User with this email not found' });
+    }
+
+    // Generate a reset token (you might use a library like crypto or jwt)
+    const resetToken = 'mock-reset-token'; // Replace with real token generation logic
+
+    // Normally, you'd send this token via email to the user
+    console.log(`Password reset token for ${email}: ${resetToken}`);
+
+    res.status(200).json({ message: 'Password reset link sent to your email' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 

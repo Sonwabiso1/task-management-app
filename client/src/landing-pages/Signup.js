@@ -37,8 +37,8 @@ export default function Signup() {
 
             const data = await response.json();
             if (response.ok) {
-                alert('User registered successfully!');
-                navigate('/logged-in-home');
+                alert('User registered successfully! You may login.');
+                navigate('/login');
             } else {
                 setError(`Registration failed: ${data.error}`);
             }
@@ -73,14 +73,14 @@ export default function Signup() {
                         required
                     />
 
-                    <label htmlFor="teamName">Team Name:</label>
-                    <input
-                        type="text"
-                        id="teamName"
-                        value={formData.teamName}
-                        onChange={handleChange}
-                        required
-                    />
+                        {/* <label htmlFor="teamName">Team Name:</label>
+                        <input
+                            type="text"
+                            id="teamName"
+                            value={formData.teamName}
+                            onChange={handleChange}
+                            required
+                        /> */}
 
                     <label htmlFor="organization">Organization:</label>
                     <select

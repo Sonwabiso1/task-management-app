@@ -53,12 +53,12 @@ export default function AdminProjects() {
     }
   };
 
-  const handleProjectClick = (projectId) => navigate(`/projects/${projectId}/tasks`);
+  const handleProjectClick = (project) => navigate(`/projects/${project.name}/tasks`);
 
   return (
     <div className="admin-projects">
       <div className="project-header">
-        <h1>Admin Projects</h1>
+        <h1>Projects</h1>
       </div>
 
       {projects.length > 0 ? (
@@ -67,12 +67,11 @@ export default function AdminProjects() {
             <div
               className="project-item"
               key={project._id}
-              onClick={() => handleProjectClick(project._id)}
+              onClick={() => handleProjectClick(project)}
             >
               <h3 className="project-title">{project.name}</h3>
               <p className="project-description">{project.description}</p>
-              {/* Status can be dynamic based on actual project data */}
-              <span className="project-status">Status: Active</span>
+              {/* <span className="project-status">Status: Active</span> */}
             </div>
           ))}
         </div>

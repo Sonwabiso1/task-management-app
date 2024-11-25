@@ -35,22 +35,22 @@ export default function Home(){
                 <div className='teammember'>
                     <img src={Nikitha} alt='Team Member 1' className='avatar'/>
                     <h3>Nikitha Mbokotwana</h3>
-                    <p>Fullstack developer</p>
+                    <p>Project Manager</p>
                 </div>
                 <div className='teammember'>
                     <img src={Du} alt='Team Member 1' className='avatar'/>
                     <h3>Du-Wayne Frieslaar</h3>
-                    <p>Fullstack developer</p>
+                    <p>Front-end developer</p>
                 </div>
                 <div className='teammember'>
                     <img src={Robyn} alt='Team Member 1' className='avatar'/>
                     <h3>Robyn Paulsen</h3>
-                    <p>Fullstack developer</p>
+                    <p>Front-end developer</p>
                 </div>
                 <div className='teammember'>
                     <img src={Monica} alt='Team Member 1' className='avatar'/>
                     <h3>Monica Ndlovu</h3>
-                    <p>Fullstack developer</p>
+                    <p>Front-end developer</p>
                 </div>
 
             </div>

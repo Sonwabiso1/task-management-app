@@ -24,7 +24,7 @@ const Navbar = () => {
       <Link to={`/projects/${id}`} className="sidebar-item">
         <FaProjectDiagram /> Projects
       </Link>
-      <Link to="/logout" className="sidebar-item sidebar-item-logout">
+      <Link to="/" className="sidebar-item sidebar-item-logout">
         <FaSignOutAlt /> Logout
       </Link>
     </nav>
