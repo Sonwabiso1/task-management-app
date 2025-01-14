@@ -39,7 +39,7 @@ function App() {
       <Route path="/notifications/:id" element={<Notifications />} />
       <Route path="/userprofile/:id" element={<UserProfile />} />
       <Route path="/projects/:id" element={<Projects />} />
-      <Route path="/projects/:projectName/tasks" element={<Tasks />} /> {/* Dynamic route for AdminTasks */}
+      <Route path="/projects/:id/:projectName/tasks" element={<Tasks />} /> {/* Dynamic route for AdminTasks */}
     </Route>
 
     {/* Redirect or logout route */}

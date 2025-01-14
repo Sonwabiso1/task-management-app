@@ -88,51 +88,57 @@ const Tasks = () => {
     setNewTask((prev) => ({ ...prev, [name]: value }));
   };
 
-const handleAddOrEditTask = async () => {
-  if (!newTask.title || !newTask.description) {
-    alert('Please provide both a title and description.');
-    return;
-  }
-
-  try {
-    const url = editingTask
-      ? `http://localhost:5000/api/projects/${project._id}/tasks/${editingTask._id}`
-      : `http://localhost:5000/api/projects/${project._id}/tasks`;
-
-    const method = editingTask ? 'PATCH' : 'POST';
-
-    const response = await fetch(url, {
-      method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newTask),
-    });
-    const data = await response.json();
-
-    if (response.ok) {
-      // Reset editing state only if the request was successful
-      if (editingTask) {
-        setTasks((prev) => ({
-          ...prev,
-          [editingTask.status.toLowerCase()]: prev[editingTask.status.toLowerCase()].map((task) =>
-            task._id === editingTask._id ? { ...task, ...newTask } : task
-          ),
-        }));
-      } else {
-        setTasks((prev) => ({
-          ...prev,
-          [newTask.status.toLowerCase()]: [...prev[newTask.status.toLowerCase()], data.task],
-        }));
-      }
-      setNewTask({ title: '', description: '', priority: 'Low', status: 'To Do' });
-      setEditingTask(null);
-    } else {
-      console.error('Task operation failed:', data.error || 'Unknown error');
+  const handleAddOrEditTask = async () => {
+    if (!newTask.title || !newTask.description) {
+      alert('Please provide both a title and description.');
+      return;
     }
-  } catch (error) {
-    console.error('Error saving task:', error);
-  }
-};
 
+    try {
+      const url = editingTask
+        ? `http://localhost:5000/api/projects/${project._id}/tasks/${editingTask._id}`
+        : `http://localhost:5000/api/projects/${project._id}/tasks`;
+
+      const method = editingTask ? 'PATCH' : 'POST';
+
+      const response = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newTask),
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        setTasks((prev) => {
+          const updatedTasks = { ...prev };
+          const statusKey = newTask.status.toLowerCase(); // Correct usage of `toLowerCase`
+
+          if (!Array.isArray(updatedTasks[statusKey])) {
+            updatedTasks[statusKey] = []; // Ensure the array exists
+          }
+
+          if (editingTask) {
+            // Update the task in the current column
+            updatedTasks[editingTask.status.toLowerCase()] = updatedTasks[editingTask.status.toLowerCase()].map((task) =>
+              task._id === editingTask._id ? { ...task, ...newTask } : task
+            );
+          } else {
+            // Add the new task to the appropriate column
+            updatedTasks[statusKey] = [...updatedTasks[statusKey], data.task];
+          }
+
+          return updatedTasks;
+        });
+
+        setNewTask({ title: '', description: '', priority: 'Low', status: 'To Do' });
+        setEditingTask(null);
+      } else {
+        console.error('Task operation failed:', data.error || 'Unknown error');
+      }
+    } catch (error) {
+      console.error('Error saving task:', error);
+    }
+  };
 
   const handleDrop = async (task, newStatus) => {
     try {

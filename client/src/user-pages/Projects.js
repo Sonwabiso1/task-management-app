@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import '../styles/admin/AdminProjects.css'; // Assuming you already have styles in place
 
 export default function AdminProjects() {
   const [projects, setProjects] = useState([]);
   const [newProject, setNewProject] = useState({ name: '', description: '' });
   const navigate = useNavigate();
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -53,7 +54,7 @@ export default function AdminProjects() {
     }
   };
 
-  const handleProjectClick = (project) => navigate(`/projects/${project.name}/tasks`);
+  const handleProjectClick = (project) => navigate(`/projects/${id}/${project.name}/tasks`);
 
   return (
     <div className="admin-projects">
